@@ -161,7 +161,7 @@ def convert_data(url, skill_name, defaults=None, model_type=None, gs_refs=None, 
         Data={}
     
         # create starts and lengths arrays
-        lengths = np.array(df3.groupby(defaults["user_id"])[defaults["user_id"]].count().values, dtype=np.int64)
+        lengths = np.array(df3.groupby(defaults["user_id"])[defaults["user_id"]].count().values, dtype=np.int64) # for every skill, check how many feedbacks
         starts = np.zeros(len(lengths), dtype=np.int64)
         starts[0] = 1
         for i in range(1, len(lengths)):
