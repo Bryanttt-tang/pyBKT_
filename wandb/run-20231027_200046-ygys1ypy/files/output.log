@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/local/home/yutang/pyBKT_/BasicForgets.py", line 27, in <module>
+    model.fit(data_path = "data/comb_df_1_train.csv")
+  File "/local/home/yutang/pyBKT_/pyBKT/models/Model.py", line 81, in fit
+    self.partial_fit(data_path = data_path, data = data, **kwargs)
+  File "/local/home/yutang/pyBKT_/pyBKT/models/Model.py", line 109, in partial_fit
+    all_data = self._data_helper(data_path, data, self.defaults, self.skills, self.model_type)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/home/yutang/pyBKT_/pyBKT/models/Model.py", line 384, in _data_helper
+    data_p = data_helper.convert_data(data_path, skills, defaults = defaults, model_type = model_type,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/home/yutang/pyBKT_/pyBKT/util/data_helper.py", line 146, in convert_data
+    df3 = df[df[defaults["skill_name"]] == skill_]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/home/yutang/anaconda3/lib/python3.11/site-packages/pandas/core/ops/common.py", line 81, in new_method
+    return method(self, other)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/local/home/yutang/anaconda3/lib/python3.11/site-packages/pandas/core/arraylike.py", line 40, in __eq__
+    return self._cmp_method(other, operator.eq)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/home/yutang/anaconda3/lib/python3.11/site-packages/pandas/core/series.py", line 6096, in _cmp_method
+    res_values = ops.comparison_op(lvalues, rvalues, op)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/home/yutang/anaconda3/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 293, in comparison_op
+    res_values = comp_method_OBJECT_ARRAY(op, lvalues, rvalues)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/home/yutang/anaconda3/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 82, in comp_method_OBJECT_ARRAY
+    result = libops.scalar_compare(x.ravel(), y, op)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
