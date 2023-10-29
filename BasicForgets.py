@@ -25,7 +25,7 @@ if __name__ == '__main__':
     model = Model(seed = 0, num_fits = 5)
     model.fit(data_path = "data/static_bkt_train.csv")
     print(model.params())
-    preds_df = model.predict(data_path = 'static_bkt_train.csv') # prediction on training set
+    preds_df = model.predict(data_path = 'data/static_bkt_train.csv') # prediction on training set
     preds_df.to_csv('pred_statics.csv', index=False)
     result="Standard BKT:"+str(model.evaluate(data_path = "data/static_bkt_test.csv", metric="auc"))
     print(result)
@@ -35,7 +35,6 @@ if __name__ == '__main__':
         file.write(result)
     # wandb.log({"Standard BKT:": result})
     # wandb.finish()
-    # model2 = Model(seed = 0, num_fits = 20)
     # model2 = Model(seed = 0, num_fits = 20)
     # model2.fit(data_path = "data/builder_train_preprocessed.csv", forgets=True)
     # print("BKT+Forgets:", model2.evaluate(data_path = "data/builder_test_preprocessed.csv", metric="auc"))
