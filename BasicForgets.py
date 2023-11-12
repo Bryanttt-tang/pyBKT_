@@ -12,7 +12,7 @@ if __name__ == '__main__':
     # project="BKT",
     # name="trial-df1",)
     # Open a file for writing
-    logging.basicConfig(filename='output_statics.log', level=logging.INFO)
+    logging.basicConfig(filename='output_df1.log', level=logging.INFO)
     logger = logging.getLogger()
 
     # Now, log messages to the file
@@ -23,18 +23,23 @@ if __name__ == '__main__':
     # # Redirect sys.stdout to the file
     # sys.stdout = steam_file
     model = Model(seed = 0, num_fits = 5)
-    model.fit(data_path = "data/static_bkt_train.csv")
+    model.fit(data_path = "data/comb_df_1_train.csv")
     print(model.params())
-    preds_df = model.predict(data_path = 'data/static_bkt_train.csv') # prediction on training set
-    preds_df.to_csv('pred_statics.csv', index=False)
-    result="Standard BKT:"+str(model.evaluate(data_path = "data/static_bkt_test.csv", metric="auc"))
-    print(result)
-    logger.info(result)
-    file_path = "statics.txt"
+    # preds_df = model.predict(data_path = 'data/course4_bkt_train.csv') # prediction on training set
+    # preds_df.to_csv('pred_statics.csv', index=False)
+    train_result="Standard BKT (train_auc):"+str(model.evaluate(data_path = "data/comb_df_1_train.csv", metric="auc"))
+    valid_result="Standard BKT (valid_auc):"+str(model.evaluate(data_path = "data/comb_df_1_test.csv", metric="auc"))
+    print(train_result)
+    print(valid_result)
+    logger.info(train_result)
+    logger.info(valid_result)
+    file_path = "df1.txt"
     with open(file_path, "w") as file:
-        file.write(result)
+        file.write(train_result)
+        file.write(valid_result)
     # wandb.log({"Standard BKT:": result})
     # wandb.finish()
+    
     # model2 = Model(seed = 0, num_fits = 20)
     # model2.fit(data_path = "data/builder_train_preprocessed.csv", forgets=True)
     # print("BKT+Forgets:", model2.evaluate(data_path = "data/builder_test_preprocessed.csv", metric="auc"))

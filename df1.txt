@@ -1,1 +1,1 @@
-Standard BKT:0.9058445016004191
+Standard BKT (train_auc):0.8728818073374693Standard BKT (valid_auc):0.8652049184501489
