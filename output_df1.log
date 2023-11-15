@@ -1,2 +1,4 @@
 INFO:root:Standard BKT (train_auc):0.8728818073374693
 INFO:root:Standard BKT (valid_auc):0.8652049184501489
+INFO:root:Standard BKT (train_auc):0.668474151001281
+INFO:root:Standard BKT (valid_auc):0.6658271685905245
