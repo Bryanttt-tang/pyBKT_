@@ -23,12 +23,15 @@ if __name__ == '__main__':
     # # Redirect sys.stdout to the file
     # sys.stdout = steam_file
     model = Model(seed = 0, num_fits = 10)
-    model.fit(data_path = "data/df1_bkt_train.csv")
+    model.fit(data_path = "data/sem1_bkt_train.csv")
+    model2 = Model(seed = 0, num_fits = 10)
+    model2.fit(data_path = "data/sem1_bkt_train.csv", forgets=True)
+    
     print(model.params())
     # preds_df = model.predict(data_path = 'data/course4_bkt_train.csv') # prediction on training set
     # preds_df.to_csv('pred_statics.csv', index=False)
-    train_result="Standard BKT (train_auc):"+str(model.evaluate(data_path = "data/df1_bkt_train.csv", metric="auc"))
-    valid_result="Standard BKT (valid_auc):"+str(model.evaluate(data_path = "data/df1_bkt_test.csv", metric="auc"))
+    train_result="Standard BKT (train_auc):"+str(model.evaluate(data_path = "data/sem1_bkt_train.csv", metric="auc"))
+    valid_result="Standard BKT (valid_auc):"+str(model.evaluate(data_path = "data/sem1_bkt_test.csv", metric="auc"))
     print(train_result)
     print(valid_result)
     logger.info(train_result)
@@ -40,12 +43,8 @@ if __name__ == '__main__':
     #     file.write(valid_result)
     # wandb.log({"Standard BKT:": result})
     # wandb.finish()
-    
-    model2 = Model(seed = 0, num_fits = 10)
-    model2.fit(data_path = "data/builder_train_preprocessed.csv", forgets=True)
-    print("BKT+Forgets:", model2.evaluate(data_path = "data/builder_test_preprocessed.csv", metric="auc"))
-    train_result_plus="BKT++ (train_auc):"+str(model2.evaluate(data_path = "data/df1_bkt_train.csv", metric="auc"))
-    valid_result_plus="BKT++ (valid_auc):"+str(model2.evaluate(data_path = "data/df1_bkt_test.csv", metric="auc"))
+    train_result_plus="BKT++ (train_auc):"+str(model2.evaluate(data_path = "data/sem1_bkt_train.csv", metric="auc"))
+    valid_result_plus="BKT++ (valid_auc):"+str(model2.evaluate(data_path = "data/sem1_bkt_test.csv", metric="auc"))
     print(train_result_plus)
     print(valid_result_plus)
     logger.info(train_result_plus)
